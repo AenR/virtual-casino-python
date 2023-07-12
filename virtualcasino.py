@@ -125,7 +125,6 @@ while True:
                 if(firstDice == secondDice):
                     betAmount *= 2
                     casinoBalance.value += betAmount
-                    print("First dice is {}, second dice is {}".format(firstDice,secondDice))
                     print("First dice is {}, second dice is {}. You won.\nYour new balance: {:.0f}".format(firstDice,secondDice,casinoBalance.value))
                     moneySave()
                 else:
