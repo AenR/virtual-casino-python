@@ -64,7 +64,7 @@ while True:
                 print("Bye!")
                 break
             casinoBalance -= betAmount
-
+            moneySave()
             playerChoose = input("Heads or Tails?\n")
             if(playerChoose=="heads"):
                 hort = 1
@@ -91,6 +91,7 @@ while True:
             print("Invalid value.")
         else:
             casinoBalance -= betAmount
+            moneySave()
             while True:
                 try:
                     if(value < max_range):
@@ -117,6 +118,7 @@ while True:
             print("Invalid value.")
         else:
             casinoBalance -= betAmount
+            moneySave()
             number = random.randint(1,10)
             playerChoose = int(input("Choose a number between 1-10: "))
             if(number == playerChoose):
@@ -139,6 +141,7 @@ while True:
                 break
             else:
                 casinoBalance -= betAmount
+                moneySave()
                 firstDice = random.randint(1,6)
                 secondDice = random.randint(1,6)
                 if(firstDice == secondDice):
@@ -164,6 +167,7 @@ while True:
                 break
             else:
                 casinoBalance -= betAmount
+                moneySave()
                 slotMachine = [random.choice(slotItems) for i in range(3)]
                 print(" ".join(slotMachine))
                 if(slotMachine[0] == slotMachine[1] == slotMachine[2]):
@@ -187,6 +191,7 @@ while True:
             else:
                 wheelResult = random.randint(1,36)
                 casinoBalance -= betAmount
+                moneySave()
                 choose = int(input("Choose a number between 1-36: "))
                 if(wheelResult == choose):
                     betAmount *= 36
