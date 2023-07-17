@@ -46,9 +46,9 @@ while True:
         cursor.execute(command,(today+1,'1'))
 
     db.commit()
-    mainMenuChoose = int(input("Welcome!\nYour Wallet: {:.0f}\n1-) Heads or Tails\n2-) Aviator\n3-) Guess\n4-) Same Dice\n0-) Exit\n".format(casinoBalance)))
+    mainMenuChoose = int(input("Welcome!\nYour Wallet: {:.0f}\n1-) Heads or Tails\n2-) Aviator\n3-) Guess\n4-) Same Dice\n5-) Rulet\n0-) Exit\n".format(casinoBalance)))
 
-    if(mainMenuChoose == 0 or mainMenuChoose > 4): # Exit
+    if(mainMenuChoose == 0 or mainMenuChoose > 5): # Exit
         print("Bye!")
         break
 #<----------/Main Menu---------->
@@ -153,3 +153,26 @@ while True:
                     print("First dice is {}, second dice is {}. You lose.\nYour new balance: {:.0f}".format(firstDice,secondDice,casinoBalance))
                     break
 #<----------/Same Dice---------->
+
+#<----------Roulette---------->
+    elif(mainMenuChoose == 5):
+        slotItems = ["🍒", "🍋", "🍉", "🍇", "💎", "🍀"]
+        while True:
+            betAmount = int(input("Wallet: {:.0f}\nWelcome to Slot Game enter your bet please\n0-) Exit:\n".format(casinoBalance)))
+            if(betAmount > casinoBalance or betAmount < 0):
+                print("Invalid value.")
+            elif(betAmount == 0):
+                print("Bye!")
+                break
+            else:
+                casinoBalance -= betAmount
+                slotMachine = [random.choice(slotItems) for i in range(3)]
+                print(" ".join(slotMachine))
+                if(slotMachine[0] == slotMachine[1] == slotMachine[2]):
+                    betAmount *= 2
+                    casinoBalance += betAmount
+                    print("You won.\nYour new balance: {:.0f}".format(casinoBalance))
+                    moneySave()
+                else:
+                    print("You lose. Your new balance: {:.0f}".format(casinoBalance))
+#<----------/Roulette---------->
