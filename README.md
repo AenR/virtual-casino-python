@@ -9,4 +9,4 @@ A virtual casino that created with python
 * Slots
 * Roulette
 
-![resim](https://github.com/AenR/virtual-casino-python/assets/40569269/f33a3298-5b93-4cf1-8bdd-b6e05ad9e629)
+![resim](https://github.com/AenR/virtual-casino-python/assets/40569269/5d34ed6f-0447-42cd-89a3-d6ba85fd1db2)
