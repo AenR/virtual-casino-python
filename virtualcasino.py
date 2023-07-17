@@ -26,8 +26,6 @@ def moneySave():
 while True:
     date = datetime.today() # Get today's info for daily reward
     today = date.day
-    command = "UPDATE casino SET daily = ? WHERE id = ?"
-    cursor.execute(command,(today+1,'1'))
     command = """SELECT * FROM casino"""
     cursor.execute(command)
     variable = cursor.fetchone()
@@ -46,7 +44,7 @@ while True:
         cursor.execute(command,(today+1,'1'))
 
     db.commit()
-    mainMenuChoose = int(input("Welcome!\nYour Wallet: {:.0f}\n1-) Heads or Tails\n2-) Aviator\n3-) Guess\n4-) Same Dice\n5-) Rulet\n0-) Exit\n".format(casinoBalance)))
+    mainMenuChoose = int(input("Welcome!\nYour Wallet: {:.0f}\n1-) Heads or Tails\n2-) Aviator\n3-) Guess\n4-) Same Dice\n5-) Roulette\n0-) Exit\n".format(casinoBalance)))
 
     if(mainMenuChoose == 0 or mainMenuChoose > 5): # Exit
         print("Bye!")
