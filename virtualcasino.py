@@ -44,9 +44,9 @@ while True:
         cursor.execute(command,(today+1,'1'))
 
     db.commit()
-    mainMenuChoose = int(input("Welcome!\nYour Wallet: {:.0f}\n1-) Heads or Tails\n2-) Aviator\n3-) Guess\n4-) Same Dice\n5-) Roulette\n0-) Exit\n".format(casinoBalance)))
+    mainMenuChoose = int(input("Welcome!\nYour Wallet: {:.0f}\n1-) Heads or Tails\n2-) Aviator\n3-) Guess\n4-) Same Dice\n5-) Slot\n6-) Roulette\n0-) Exit\n".format(casinoBalance)))
 
-    if(mainMenuChoose == 0 or mainMenuChoose > 5): # Exit
+    if(mainMenuChoose == 0 or mainMenuChoose > 6): # Exit
         print("Bye!")
         break
 #<----------/Main Menu---------->
@@ -152,7 +152,7 @@ while True:
                     break
 #<----------/Same Dice---------->
 
-#<----------Roulette---------->
+#<----------Slot---------->
     elif(mainMenuChoose == 5):
         slotItems = ["🍒", "🍋", "🍉", "🍇", "💎", "🍀"]
         while True:
@@ -173,4 +173,26 @@ while True:
                     moneySave()
                 else:
                     print("You lose. Your new balance: {:.0f}".format(casinoBalance))
+#<----------/Slot---------->
+
+#<----------Roulette---------->
+    elif(mainMenuChoose == 6):
+        while True:
+            betAmount = int(input("Wallet: {:.0f}\nWelcome to Roulette Game enter your bet please\n0-) Exit:\n".format(casinoBalance)))
+            if(betAmount > casinoBalance or betAmount < 0):
+                print("Invalid value.")
+            elif(betAmount == 0):
+                print("Bye!")
+                break
+            else:
+                wheelResult = random.randint(1,36)
+                casinoBalance -= betAmount
+                choose = int(input("Choose a number between 1-36: "))
+                if(wheelResult == choose):
+                    betAmount *= 36
+                    casinoBalance += betAmount
+                    print("You won.\nYour new balance: {:.0f}".format(casinoBalance))
+                    moneySave()
+                else:
+                    print("Number is: {}\nYou lose. Your new balance: {:.0f}".format(wheelResult, casinoBalance))
 #<----------/Roulette---------->
