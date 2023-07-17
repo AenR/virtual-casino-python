@@ -3,7 +3,6 @@ import sqlite3
 from datetime import datetime
 import random # Choosing random number
 import time # For sleep command
-import os # For clear console
 from openpyxl import Workbook,load_workbook # For save balance
 #<----------/imports---------->
 
@@ -25,9 +24,28 @@ def moneySave():
 
 #<----------Main Menu---------->
 while True:
-    today = datetime.today() # Get today's info for daily reward
-    print(today.day)
-    print(today.day + 1)
+    date = datetime.today() # Get today's info for daily reward
+    today = date.day
+    command = "UPDATE casino SET daily = ? WHERE id = ?"
+    cursor.execute(command,(today+1,'1'))
+    command = """SELECT * FROM casino"""
+    cursor.execute(command)
+    variable = cursor.fetchone()
+    daily = int(variable[2])
+    if (today < daily):
+        print("Daily reward is not ready.")
+    elif (today == daily):
+        print("You have collected your daily reward.")
+        command = "UPDATE casino SET balance = ? WHERE id = ?"
+        x = casinoBalance + 200
+        cursor.execute(command,(x,'1'))
+        command = "UPDATE casino SET daily = ? WHERE id = ?"
+        cursor.execute(command,(today+1,'1'))
+    else:
+        command = "UPDATE casino SET daily = ? WHERE id = ?"
+        cursor.execute(command,(today+1,'1'))
+
+    db.commit()
     mainMenuChoose = int(input("Welcome!\nYour Wallet: {:.0f}\n1-) Heads or Tails\n2-) Aviator\n3-) Guess\n4-) Same Dice\n0-) Exit\n".format(casinoBalance)))
 
     if(mainMenuChoose == 0 or mainMenuChoose > 4): # Exit
