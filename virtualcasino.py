@@ -1,6 +1,6 @@
 #<----------imports---------->
-import sqlite3
-from datetime import datetime
+import sqlite3 # To store money value and daily reward date
+from datetime import datetime # For daily reward
 import random # Choosing random number
 import time # For sleep command
 from openpyxl import Workbook,load_workbook # For save balance
@@ -44,7 +44,7 @@ while True:
         cursor.execute(command,(today+1,'1'))
 
     db.commit()
-    mainMenuChoose = int(input("Welcome!\nYour Wallet: {:.0f}\n1-) Heads or Tails\n2-) Aviator\n3-) Guess\n4-) Same Dice\n5-) Slot\n6-) Roulette\n0-) Exit\n".format(casinoBalance)))
+    mainMenuChoose = int(input("Welcome!\nYour Wallet: {:.0f}\n1-) Heads or Tails\n2-) Aviator\n3-) Guess\n4-) Same Dice\n5-) Slots\n6-) Roulette\n0-) Exit\n".format(casinoBalance)))
 
     if(mainMenuChoose == 0 or mainMenuChoose > 6): # Exit
         print("Bye!")

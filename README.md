@@ -6,5 +6,7 @@ A virtual casino that created with python
 * Aviator
 * Guess Game
 * Same Dice Game
+* Slots
+* Roulette
 
 ![resim](https://github.com/AenR/virtual-casino-python/assets/40569269/f33a3298-5b93-4cf1-8bdd-b6e05ad9e629)
